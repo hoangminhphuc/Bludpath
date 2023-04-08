@@ -1,0 +1,298 @@
+# depslib dependency file v1.0
+1677386651 source:d:\sdlgamesmaking\sdltest\core\spine.cpp
+	<iostream>
+	"Spine.h"
+
+1677587844 d:\sdlgamesmaking\sdltest\core\spine.h
+	<../AllFunc.h>
+
+1677675445 source:d:\sdlgamesmaking\sdltest\voidgenome 2.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+	"game-map.h"
+	"maincharacter.h"
+	"Timer.h"
+
+1676907214 source:d:\sdlgamesmaking\sdltest\allfunc.cpp
+	<iostream>
+	"AllFunc.h"
+
+1677676085 d:\sdlgamesmaking\sdltest\allfunc.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+
+1676907152 d:\sdlgamesmaking\sdltest\\allfunc.h
+	<iostream>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+
+1677389066 source:d:\sdlgamesmaking\sdltest\game-map.cpp
+	"game-map.h"
+	<iostream>
+
+1677596630 d:\sdlgamesmaking\sdltest\game-map.h
+	"Spine.h"
+
+1677386803 d:\sdlgamesmaking\sdltest\game-map.cpp
+	"game-map.h"
+	"AllFunc.h"
+	"Spine.h"
+
+1677682680 d:\sdlgamesmaking\sdltest\maincharacter.h
+	"AllFunc.h"
+	"Spine.h"
+
+1677681412 source:d:\sdlgamesmaking\sdltest\maincharacter.cpp
+	"maincharacter.h"
+	"AllFunc.h"
+
+1677598840 source:d:\sdlgamesmaking\sdltest\timer.cpp
+	"Timer.h"
+	"AllFunc.h"
+
+1677598840 d:\sdlgamesmaking\sdltest\timer.h
+
+1679456420 source:c:\sdlgamesmaking\sdltest\allfunc.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+
+1680852378 c:\sdlgamesmaking\sdltest\allfunc.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"TextObject.h"
+
+1679846171 source:c:\sdlgamesmaking\sdltest\core\spine.cpp
+	<iostream>
+	"Spine.h"
+
+1679836828 c:\sdlgamesmaking\sdltest\core\spine.h
+	<../AllFunc.h>
+
+1680852378 source:c:\sdlgamesmaking\sdltest\game-map.cpp
+	"game-map.h"
+	<iostream>
+
+1680852378 c:\sdlgamesmaking\sdltest\game-map.h
+	"Spine.h"
+
+1677598840 source:c:\sdlgamesmaking\sdltest\timer.cpp
+	"Timer.h"
+	"AllFunc.h"
+
+1677598840 c:\sdlgamesmaking\sdltest\timer.h
+
+1680880107 source:c:\sdlgamesmaking\sdltest\voidgenome 2.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+	"game-map.h"
+	"maincharacter.h"
+	"Timer.h"
+	"BulletObject.h"
+	"ThreatsObject.h"
+	"ExplosionObject.h"
+	<windows.h>
+	"TextObject.h"
+	"PlayerPower.h"
+	"Geometric.h"
+
+1680883500 c:\sdlgamesmaking\sdltest\maincharacter.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1680884497 source:c:\sdlgamesmaking\sdltest\maincharacter.cpp
+	"maincharacter.h"
+	"AllFunc.h"
+	"BulletObject.h"
+	"PlayerPower.h"
+
+1678162613 source:c:\sdlgamesmaking\sdltest\bulletobject .cpp
+	"BulletObject .h"
+
+1677995009 c:\sdlgamesmaking\sdltest\bulletobject .h
+	"AllFunc.h"
+	"Spine.h"
+
+1678419111 source:c:\sdlgamesmaking\sdltest\bulletobject.cpp
+	"BulletObject.h"
+
+1678419111 c:\sdlgamesmaking\sdltest\bulletobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1678809321 source:c:\sdlgamesmaking\sdltest\threatsobject.cpp
+	"ThreatsObject.h"
+
+1678798562 c:\sdlgamesmaking\sdltest\threatsobject.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1678807686 c:\sdlgamesmaking\sdltest\explosionobject.h
+	"Spine.h"
+	"AllFunc.h"
+
+1678807710 source:c:\sdlgamesmaking\sdltest\explosionobject.cpp
+	"ExplosionObject.h"
+	"Spine.h"
+
+1679453594 c:\sdlgamesmaking\sdltest\textobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679410719 source:c:\sdlgamesmaking\sdltest\textobject.cpp
+	"TextObject.h"
+
+1678981643 source:c:\sdlgamesmaking\sdltest\playerpower.cpp
+	"PlayerPower.h"
+
+1678981643 c:\sdlgamesmaking\sdltest\playerpower.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679397525 source:c:\sdlgamesmaking\sdltest\ltexture.cpp
+	"LTexture.h"
+
+1679397552 c:\sdlgamesmaking\sdltest\ltexture.h
+	<string>
+	<iostream>
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+
+1679409357 source:c:\sdlgamesmaking\sdltest\gstartmenu.cpp
+	"gStartMenu.h"
+
+1679397544 c:\sdlgamesmaking\sdltest\gstartmenu.h
+	"LTexture.h"
+	"LButton.h"
+
+1679397887 c:\sdlgamesmaking\sdltest\lbutton.h
+	"AllFunc.h"
+	"LTexture.h"
+
+1679399322 source:c:\sdlgamesmaking\sdltest\lbutton.cpp
+	"LButton.h"
+	"AllFunc.h"
+
+1679457418 source:c:\sdlgamesmaking\sdltest\geometric.cpp
+	"Geometric.h"
+
+1679457730 c:\sdlgamesmaking\sdltest\geometric.h
+	"AllFunc.h"
+
+1679456420 source:c:\new folder\sdltest\allfunc.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+
+1680852378 c:\new folder\sdltest\allfunc.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"TextObject.h"
+
+1679453594 c:\new folder\sdltest\textobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679836828 c:\new folder\sdltest\core\spine.h
+	<../AllFunc.h>
+
+1678419111 source:c:\new folder\sdltest\bulletobject.cpp
+	"BulletObject.h"
+
+1678419111 c:\new folder\sdltest\bulletobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679846171 source:c:\new folder\sdltest\core\spine.cpp
+	<iostream>
+	"Spine.h"
+
+1678807710 source:c:\new folder\sdltest\explosionobject.cpp
+	"ExplosionObject.h"
+	"Spine.h"
+
+1678807686 c:\new folder\sdltest\explosionobject.h
+	"Spine.h"
+	"AllFunc.h"
+
+1680852378 source:c:\new folder\sdltest\game-map.cpp
+	"game-map.h"
+	<iostream>
+
+1680852378 c:\new folder\sdltest\game-map.h
+	"Spine.h"
+
+1679457418 source:c:\new folder\sdltest\geometric.cpp
+	"Geometric.h"
+
+1679457730 c:\new folder\sdltest\geometric.h
+	"AllFunc.h"
+
+1680884497 source:c:\new folder\sdltest\maincharacter.cpp
+	"maincharacter.h"
+	"AllFunc.h"
+	"BulletObject.h"
+	"PlayerPower.h"
+
+1680883500 c:\new folder\sdltest\maincharacter.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1678981643 c:\new folder\sdltest\playerpower.h
+	"AllFunc.h"
+	"Spine.h"
+
+1678981643 source:c:\new folder\sdltest\playerpower.cpp
+	"PlayerPower.h"
+
+1679410719 source:c:\new folder\sdltest\textobject.cpp
+	"TextObject.h"
+
+1678809321 source:c:\new folder\sdltest\threatsobject.cpp
+	"ThreatsObject.h"
+
+1678798562 c:\new folder\sdltest\threatsobject.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1677598840 source:c:\new folder\sdltest\timer.cpp
+	"Timer.h"
+	"AllFunc.h"
+
+1677598840 c:\new folder\sdltest\timer.h
+
+1680880107 source:c:\new folder\sdltest\voidgenome 2.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+	"game-map.h"
+	"maincharacter.h"
+	"Timer.h"
+	"BulletObject.h"
+	"ThreatsObject.h"
+	"ExplosionObject.h"
+	<windows.h>
+	"TextObject.h"
+	"PlayerPower.h"
+	"Geometric.h"
+
