@@ -11,6 +11,7 @@ Your mission is to bring her back home safe and sound without any fatal injuries
  UP, RIGHT, LEFT: change the direction or jump.
  
  A button: shoots out a gun that she accidentally receive and know how to use.
+ 
  F button: release a laser beam out of nowhere.
  
  * Level and threats:
