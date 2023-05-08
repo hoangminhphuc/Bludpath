@@ -27,6 +27,8 @@ class BulletObject : public Spine
         {
             SPHERE_BULLET = 50,
             LASER_BULLET =51,
+            FIREBALL_BULLET = 52,
+            LIGHTNING_BULLET = 53,
         };
 
         void set_x_val(const int& xVal) {x_val_ = xVal;}
@@ -46,6 +48,7 @@ class BulletObject : public Spine
 
         void HandleMove(const int& x_border, const int& y_border); // giới hạn để khi vượt quá screen thì xóa
         bool LoadImgBullet(SDL_Renderer* des);
+
     private:
         int x_val_;
         int y_val_;

@@ -4,7 +4,8 @@
 #include "Spine.h"
 #include "AllFunc.h"
 
-#define NUM_FRAME_EXP 8
+#define NUM_FRAME_EXP_h 6
+#define NUM_FRAME_EXP_v 3
 
 class ExplosionObject : public Spine
 {
@@ -25,7 +26,7 @@ class ExplosionObject : public Spine
         int frame_height_;
 
         unsigned int frame_;
-        SDL_Rect frame_clip_[8];
+        SDL_Rect frame_clip_[NUM_FRAME_EXP_h*NUM_FRAME_EXP_v];
 };
 
 #endif // EXPLOSIONOBJECT_H

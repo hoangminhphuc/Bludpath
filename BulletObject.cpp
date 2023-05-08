@@ -17,6 +17,7 @@ BulletObject::~BulletObject ()
 bool BulletObject::LoadImgBullet(SDL_Renderer* des)
 {
     bool ret = false;
+
     if (bullet_type_ == LASER_BULLET)
     {
         ret = LoadImg("layers//laser_bullet.png",des);
@@ -25,15 +26,27 @@ bool BulletObject::LoadImgBullet(SDL_Renderer* des)
     {
         ret = LoadImg("layers//sphere_bullet.png",des);
     }
+    else if(bullet_type_ == LIGHTNING_BULLET)
+    {
+       //int k = rand() %
+        ret = LoadImg("layers//lightning_bullet.png",des);
+    }
+    else if(bullet_type_ == FIREBALL_BULLET)
+    {
+
+        ret = LoadImg("layers//fireball_bullet.png",des);
+    }
     return ret;
 }
+
+
 
 void BulletObject::HandleMove(const int& x_border, const int& y_border)
 {
     if (bullet_dir_ == DIR_RIGHT)
     {
         rect_.x += x_val_;
-        if (rect_.x > x_border)// nếu vẫn chưa thoát khỏi border, vẫn cộng tiếp
+        if (rect_.x > (x_border*2/3)-50)// nếu vẫn chưa thoát khỏi border, vẫn cộng tiếp
         {
             is_move_ = false;
         }
@@ -46,10 +59,10 @@ void BulletObject::HandleMove(const int& x_border, const int& y_border)
             is_move_ = false;
         }
     }
-    else if(bullet_dir_ == DIR_UP)
+    else if(bullet_dir_ == DIR_DOWN)
     {
-        rect_.y -=y_val_;
-        if(rect_.y <0)
+          rect_.y += y_val_;
+        if(rect_.y > y_border)
         {
             is_move_ = false;
         }

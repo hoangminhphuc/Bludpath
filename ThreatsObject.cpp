@@ -16,6 +16,8 @@ ThreatsObject::ThreatsObject()
     animation_b_ = 0;
     input_type_.left_ = 0;
     type_move_ = STATIC_THREAT;
+    die = 0;
+    threats_health = 0;
 
 }
 
@@ -24,78 +26,106 @@ ThreatsObject::~ThreatsObject()
     //dtor
 }
 
-bool ThreatsObject::LoadImg(std::string path, SDL_Renderer* screen)
+bool ThreatsObject::LoadImg(std::string path, SDL_Renderer* screen, int type_of_threats)
 {
      bool ret = Spine::LoadImg(path, screen);
     if (ret == true)
     {
-        width_frame_ = rect_.w/THREAT_FRAME_NUM;
-        height_frame_ = rect_.h;
+        if(type_of_threats == 1 || type_of_threats == 3)
+        {
+            width_frame_ = rect_.w/THREAT_FRAME_NUM_SLIME;
+            height_frame_ = rect_.h;
+        }
+        else if(type_of_threats == 2)
+        {
+            width_frame_ = rect_.w/THREAT_FRAME_NUM_SLIME;
+            height_frame_ = rect_.h;
+        }
+        else if (type_of_threats == 20)
+        {
+            width_frame_ = rect_.w/THREAT_FRAME_NUM_TITAN;
+            height_frame_ = rect_.h;
+        }
+
     }
 
     return ret;
 }
 
-void ThreatsObject::set_clips()
+void ThreatsObject::set_clips(int type_of_threats)
 {
    if (width_frame_ > 0 && height_frame_ > 0)
    {
-       frame_clip_[0].x = 0;
-       frame_clip_[0].y = 0;
-       frame_clip_[0].w = width_frame_;
-       frame_clip_[0].h = height_frame_;
+       if(type_of_threats == 1 || type_of_threats == 3)
+       {
+           for(int i = 0; i < THREAT_FRAME_NUM_SLIME; i++)
+           {
+                frame_clip_[i].x = width_frame_*i;
+                frame_clip_[i].y = 0;
+                frame_clip_[i].w = width_frame_;
+                frame_clip_[i].h = height_frame_;
+           }
+       }
+       else if (type_of_threats == 2)
+       {
+           for(int i = 0; i < THREAT_FRAME_NUM_TITAN; i++)
+           {
+                frame_clip_[i].x = width_frame_*i;
+                frame_clip_[i].y = 0;
+                frame_clip_[i].w = width_frame_;
+                frame_clip_[i].h = height_frame_;
+           }
+       }
+       else if (type_of_threats == 20)
+       {
 
-       frame_clip_[1].x = width_frame_;
-       frame_clip_[1].y = 0;
-       frame_clip_[1].w = width_frame_;
-       frame_clip_[1].h = height_frame_;
-
-       frame_clip_[2].x = 2*width_frame_;
-       frame_clip_[2].y = 0;
-       frame_clip_[2].w = width_frame_;
-       frame_clip_[2].h = height_frame_;
-
-       frame_clip_[3].x = 3*width_frame_;
-       frame_clip_[3].y = 0;
-       frame_clip_[3].w = width_frame_;
-       frame_clip_[3].h = height_frame_;
-
-       frame_clip_[4].x = 4*width_frame_;
-       frame_clip_[4].y = 0;
-       frame_clip_[4].w = width_frame_;
-       frame_clip_[4].h = height_frame_;
-
-       frame_clip_[5].x = 5*width_frame_;
-       frame_clip_[5].y = 0;
-       frame_clip_[5].w = width_frame_;
-       frame_clip_[5].h = height_frame_;
-
-       frame_clip_[6].x = 6*width_frame_;
-       frame_clip_[6].y = 0;
-       frame_clip_[6].w = width_frame_;
-       frame_clip_[6].h = height_frame_;
-
-       frame_clip_[7].x = 7*width_frame_;
-       frame_clip_[7].y = 0;
-       frame_clip_[7].w = width_frame_;
-       frame_clip_[7].h = height_frame_;
-
-
+           for(int i = 0; i < THREAT_FRAME_NUM_TITAN; i++)
+           {
+                frame_clip_[i].x = width_frame_*i;
+                frame_clip_[i].y = 0;
+                frame_clip_[i].w = width_frame_;
+                frame_clip_[i].h = height_frame_;
+           }
+       }
 
    }
 }
 
 
-void ThreatsObject::Show(SDL_Renderer* des)
+void ThreatsObject::Show(SDL_Renderer* des, int type_of_threats)
 {
-    if (come_back_time_ == 0)
+    if (come_back_time_ == 0 && die == 0)
     {
         rect_.x =x_pos_ - map_x_;
         rect_.y = y_pos_ - map_y_;
         frame_++;
-        if (frame_ >= 8)
+
+        if(type_of_threats == 1 || type_of_threats == 3)
         {
-            frame_ = 0;
+            if (frame_ >= 7)
+            {
+                frame_ = 0;
+
+            }
+
+        }
+        else if (type_of_threats == 20)
+        {
+            if (frame_ >= 7)
+            {
+                frame_ = 0;
+
+            }
+
+        }
+        else if (type_of_threats == 2)
+        {
+            if (frame_ >= 7)
+            {
+                frame_ = 0;
+
+            }
+
         }
 
         SDL_Rect* current_clip = &frame_clip_[frame_];
@@ -119,11 +149,25 @@ void ThreatsObject::DoPlayer(gMAP& gMap)
 
         if(input_type_.left_ == 1)
         {
-            x_val_ -=THREAT_SPEED;
+            if(type_move_ != FLYING_THREAT)
+            {
+                x_val_ -=THREAT_SPEED;
+            }
+            else
+            {
+                x_val_ -=ANGEL_THREAT_SPEED;
+            }
         }
         else if (input_type_.right_ == 1)
         {
-            x_val_ +=THREAT_SPEED; // khi cong mai ma gap animation_a_ thi se doi chieu, lien tuc nhu vay
+            if(type_move_ != FLYING_THREAT)
+            {
+                x_val_ +=THREAT_SPEED; // khi cong mai ma gap animation_a_ thi se doi chieu, lien tuc nhu vay
+            }
+            else
+            {
+                x_val_ +=ANGEL_THREAT_SPEED;
+            }
         }
 
 
@@ -291,7 +335,11 @@ void ThreatsObject::CheckToMap(gMAP& map_data)
     }
 
     x_pos_ +=x_val_;
-    y_pos_ +=y_val_;
+    if(type_move_ != FLYING_THREAT)
+    {
+        y_pos_ +=y_val_;
+    }
+    //không va chạm thì cứ đi bình thường
 
     if(x_pos_ < 0)
     {
@@ -311,13 +359,13 @@ void ThreatsObject::CheckToMap(gMAP& map_data)
 
 
 
-void ThreatsObject::ImpMoveType(SDL_Renderer* screen)
+void ThreatsObject::ImpMoveType(SDL_Renderer* screen, int type_of_threat)
 {
     if (type_move_ == STATIC_THREAT)
     {
 
     }
-    else
+    else if(type_move_ == MOVE_IN_SPACE_THREAT)
     {
         if(on_ground_ == true)
         {
@@ -325,20 +373,78 @@ void ThreatsObject::ImpMoveType(SDL_Renderer* screen)
             {
                 input_type_.left_ = 1;
                 input_type_.right_ = 0;
-                LoadImg("layers//threat1_left.png", screen);
+                if(type_of_threat == 1)
+                {
+                    LoadImg("layers//slimeleft.png", screen, 1);
+                }
+                else if (type_of_threat == 2)
+                {
+                    LoadImg("layers//threat1_left.png", screen, 2);
+                }
             }
             else if (x_pos_ < animation_a_)
             {
                 input_type_.left_ = 0;
                 input_type_.right_ = 1;
-                LoadImg("layers//threat1_right.png", screen);
+                if(type_of_threat == 1)
+                {
+
+
+                LoadImg("layers//slimeright.png", screen, 1);
+                }
+                else if (type_of_threat == 2)
+                {
+                    LoadImg("layers//threat1_right.png", screen, 2);
+                }
             }
         }
         else
         {
             if (input_type_.left_ == 1)
             {
-                LoadImg("layers//threat1_left.png", screen);
+                if(type_of_threat == 1)
+                {
+                    LoadImg("layers//slimeleft.png", screen, 1);
+                }
+                else if (type_of_threat == 2)
+                {
+                    LoadImg("layers//threat1_left.png", screen, 2);
+                }
+            }
+        }
+    }
+    else if (type_move_ == FLYING_THREAT)
+    {
+        if (x_pos_ > animation_b_)
+        {
+            input_type_.left_ = 1;
+            input_type_.right_ = 0;
+            if(type_of_threat == 3)
+            {
+                LoadImg("layers//angel_threat.png", screen, 3);
+            }
+
+        }
+        else if (x_pos_ < animation_a_)
+        {
+            input_type_.left_ = 0;
+            input_type_.right_ = 1;
+            if(type_of_threat == 3)
+            {
+                LoadImg("layers//angel_threat.png", screen, 3);
+            }
+
+        }
+
+        else
+        {
+            if (input_type_.left_ == 1)
+            {
+                if(type_of_threat == 3)
+                {
+                    LoadImg("layers//angel_threat.png", screen, 3);
+                }
+
             }
         }
     }
@@ -350,17 +456,34 @@ void ThreatsObject::InitBullet(BulletObject* p_bullet, SDL_Renderer* screen)
 {
     if(p_bullet != NULL)
     {
-        p_bullet->set_bullet_type(BulletObject::SPHERE_BULLET);
-        bool ret = p_bullet->LoadImgBullet(screen);
 
-        if (ret)
+        if(type_move_ ==STATIC_THREAT)
         {
-            p_bullet->set_is_move(true);
-            p_bullet->set_bullet_dir(BulletObject::DIR_LEFT);
-            p_bullet->SetRect(rect_.x + 5, rect_.y + 10);
-            p_bullet->set_x_val(15);
-            bullet_list_.push_back(p_bullet);
+             p_bullet->set_bullet_type(BulletObject::SPHERE_BULLET);
+            bool ret = p_bullet->LoadImgBullet(screen);
+            if (ret)
+            {
+                p_bullet->set_is_move(true);
+                p_bullet->set_bullet_dir(BulletObject::DIR_LEFT);
+                p_bullet->SetRect(rect_.x +5, rect_.y + 10);
+                p_bullet->set_x_val(15); //tốc độ bắn
+                bullet_list_.push_back(p_bullet);
+            }
         }
+        else if(type_move_ == FLYING_THREAT)
+        {
+            p_bullet->set_bullet_type(BulletObject::LIGHTNING_BULLET);
+            bool ret = p_bullet->LoadImgBullet(screen);
+            if (ret)
+            {
+                p_bullet->set_is_move(true);
+                p_bullet->set_bullet_dir(BulletObject::DIR_DOWN);
+                p_bullet->SetRect(rect_.x - 100, rect_.y + SCREEN_HEIGHT);
+                p_bullet->set_y_val(15);
+                bullet_list_.push_back(p_bullet);
+            }
+        }
+
 
     }
 }
@@ -375,21 +498,44 @@ void ThreatsObject::MakeBullet(SDL_Renderer* screen, const int& x_limit, const i
         {
             if (p_bullet->get_is_move())
             {
-                int bullet_distance = rect_.x + width_frame_ - p_bullet->GetRect().x;
-                if (bullet_distance < 300 && bullet_distance > 0)
+
+                int bullet_distance_x = rect_.x + width_frame_ - p_bullet->GetRect().x;
+                if(type_move_ == STATIC_THREAT)
                 {
-                    p_bullet->HandleMove(x_limit, y_limit);
-                    p_bullet->Render(screen);
+                    if (bullet_distance_x < 300 && bullet_distance_x > 0)
+                    {
+                        p_bullet->HandleMove(x_limit, y_limit);
+                        p_bullet->Render(screen);
+                    }
+                    else
+                    {
+                        p_bullet->set_is_move(false); // qua 300 se dung lai kh ban nua
+                    }
                 }
-                else
+                else if (type_move_ == FLYING_THREAT )
                 {
-                    p_bullet->set_is_move(false); // qua 300 se dung lai kh ban nua
+                    if (1)
+                    {
+                        p_bullet->HandleMove(x_limit, y_limit);
+                        p_bullet->Render(screen);
+                    }
+                    else
+                    {
+                        p_bullet->set_is_move(false);
+                    }
                 }
             }
             else
             {
                 p_bullet->set_is_move(true);
-                p_bullet->SetRect(rect_.x + 5, rect_.y + 10);
+                if(type_move_ == STATIC_THREAT)
+                {
+                    p_bullet->SetRect(rect_.x +5, rect_.y + 10);
+                }
+                else if (type_move_ == FLYING_THREAT)
+                {
+                    p_bullet->SetRect(rect_.x + 50 , rect_.y + 50);
+                }
 
             }
         }

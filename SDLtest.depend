@@ -296,3 +296,107 @@
 	"PlayerPower.h"
 	"Geometric.h"
 
+1681032932 source:c:\new folder\new folder\new folder\allfunc.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+
+1681051154 c:\new folder\new folder\new folder\allfunc.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+	<SDL_mixer.h>
+	"TextObject.h"
+
+1681033091 c:\new folder\new folder\new folder\textobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679836828 c:\new folder\new folder\new folder\core\spine.h
+	<../AllFunc.h>
+
+1681303609 source:c:\new folder\new folder\new folder\bulletobject.cpp
+	"BulletObject.h"
+
+1681303409 c:\new folder\new folder\new folder\bulletobject.h
+	"AllFunc.h"
+	"Spine.h"
+
+1679846171 source:c:\new folder\new folder\new folder\core\spine.cpp
+	<iostream>
+	"Spine.h"
+
+1681126902 source:c:\new folder\new folder\new folder\explosionobject.cpp
+	"ExplosionObject.h"
+	"Spine.h"
+
+1681057406 c:\new folder\new folder\new folder\explosionobject.h
+	"Spine.h"
+	"AllFunc.h"
+
+1680852378 source:c:\new folder\new folder\new folder\game-map.cpp
+	"game-map.h"
+	<iostream>
+
+1680852378 c:\new folder\new folder\new folder\game-map.h
+	"Spine.h"
+
+1679457418 source:c:\new folder\new folder\new folder\geometric.cpp
+	"Geometric.h"
+
+1679457730 c:\new folder\new folder\new folder\geometric.h
+	"AllFunc.h"
+
+1681301702 source:c:\new folder\new folder\new folder\maincharacter.cpp
+	"maincharacter.h"
+	"AllFunc.h"
+	"BulletObject.h"
+	"PlayerPower.h"
+
+1681053646 c:\new folder\new folder\new folder\maincharacter.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1678981643 c:\new folder\new folder\new folder\playerpower.h
+	"AllFunc.h"
+	"Spine.h"
+
+1678981643 source:c:\new folder\new folder\new folder\playerpower.cpp
+	"PlayerPower.h"
+
+1683427817 source:c:\new folder\new folder\new folder\textobject.cpp
+	"TextObject.h"
+
+1681309761 source:c:\new folder\new folder\new folder\threatsobject.cpp
+	"ThreatsObject.h"
+
+1681309762 c:\new folder\new folder\new folder\threatsobject.h
+	<vector>
+	"AllFunc.h"
+	"Spine.h"
+	"BulletObject.h"
+
+1677598840 source:c:\new folder\new folder\new folder\timer.cpp
+	"Timer.h"
+	"AllFunc.h"
+
+1677598840 c:\new folder\new folder\new folder\timer.h
+
+1683428459 source:c:\new folder\new folder\new folder\voidgenome 2.cpp
+	<iostream>
+	"AllFunc.h"
+	"Spine.h"
+	"game-map.h"
+	"maincharacter.h"
+	"Timer.h"
+	"BulletObject.h"
+	"ThreatsObject.h"
+	"ExplosionObject.h"
+	<windows.h>
+	"TextObject.h"
+	"PlayerPower.h"
+	"Geometric.h"
+

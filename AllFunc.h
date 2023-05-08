@@ -61,7 +61,8 @@ namespace SDLCommonFunc
 {
 
     bool CheckCollision(const SDL_Rect& object1, const SDL_Rect& object2);
-    int ShowMenu(SDL_Surface* des, TTF_Font* font);
+    bool CheckFocusWithRect(const int& x, const int& y, const SDL_Rect& rect);
+    int ShowMenu(SDL_Renderer* des, TTF_Font* font);
 }
 
 

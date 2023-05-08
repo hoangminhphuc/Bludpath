@@ -145,6 +145,7 @@ void maincharacter::Show(SDL_Renderer* des)
 
 void maincharacter::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 {
+
     if (events.type == SDL_KEYDOWN)
     {
         switch (events.key.keysym.sym)
@@ -200,6 +201,8 @@ void maincharacter::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
         }
         else if (events.key.keysym.sym == SDLK_f)
         {
+
+
             //tạo viên đạn
             BulletObject* p_bullet = new BulletObject ();
             p_bullet->set_bullet_type(BulletObject::LASER_BULLET);
@@ -208,12 +211,12 @@ void maincharacter::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
             if (status_ == WALK_LEFT)
             {
                 p_bullet->set_bullet_dir(BulletObject::DIR_LEFT);
-                p_bullet->SetRect(this->rect_.x, rect_.y + height_frame*0.25);
+                p_bullet->SetRect(this->rect_.x, rect_.y - height_frame/2);
             }
             else
             {
                 p_bullet->set_bullet_dir(BulletObject::DIR_RIGHT);
-                p_bullet->SetRect(this->rect_.x + width_frame - 20, rect_.y + height_frame*0.25);
+                p_bullet->SetRect(this->rect_.x , rect_.y - height_frame/2 );
             }
 
 
@@ -221,12 +224,19 @@ void maincharacter::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
             p_bullet->set_y_val(20);
             p_bullet->set_is_move(true);
             p_bullet_list_.push_back(p_bullet);
+
+
+
         }
         else if (events.key.keysym.sym == SDLK_a)
         {
+
+
+
             BulletObject* p_bullet = new BulletObject ();
             p_bullet->set_bullet_type(BulletObject::SPHERE_BULLET);
             p_bullet->LoadImgBullet(screen);
+           // p_bullet->LoadAnimation(screen);
 
             if (status_ == WALK_LEFT)
             {
@@ -241,16 +251,19 @@ void maincharacter::HandleInputAction(SDL_Event events, SDL_Renderer* screen)
 
 
             p_bullet->set_x_val(20);
-            p_bullet->set_y_val(20);
+           // p_bullet->set_y_val(20);
             p_bullet->set_is_move(true);
             p_bullet_list_.push_back(p_bullet);
+
+
+
         }
     }
 }
 
 void maincharacter::HandleBullet(SDL_Renderer* des)
 {
-    //ktra xem băng đạn có hay k
+    //ktra xem băng đạn có hay k, thường chỉ có 1 viên vì bấm 1 cái là tạo 1
     for (int i = 0; i < p_bullet_list_.size(); i++)
     {
         BulletObject* p_bullet = p_bullet_list_.at(i);
@@ -378,23 +391,36 @@ void maincharacter::CenterEntityOnMap(gMAP& map_data)
     }
 }
 
-void maincharacter::CheckToMap(gMAP& map_data)
+void maincharacter::CheckToMap(gMAP& map_data) //ktra va chạm nvat và map bản đồ
 {
     int x1 = 0;
     int x2 = 0;
-
+    //giới hạn ktra theo chiều x1->x2
     int y1 = 0;
     int y2 = 0;
-
+    //tương tự x1, x2
 
     //CHECK HORIZONTAL
     int height_min = height_frame < TILE_SIZE ? height_frame : TILE_SIZE; //true thi lay ve trc
-    x1 = (x_pos + x_val) / TILE_SIZE; //ktra nvat dang dung o o bnhieu
+    x1 = (x_pos + x_val) / TILE_SIZE;
+    //vị trí nvat + di chuyển 1 lượng chia cho tile size
+    // -> nvat SẼ đứng ở ô bnhieu khi di chuyển 1 lượng x_val
     x2 = (x_pos + x_val + width_frame -1) / TILE_SIZE;
 
     y1 = (y_pos) / TILE_SIZE;
     y2 = (y_pos + height_min -1) / TILE_SIZE;
 
+    /*
+        x1,y1************x2,y1
+        *                   *
+        *                   *
+        *                   *
+        *                   *
+        *                   *
+        x1,y2*************x2,y2
+
+
+    */
     if (x1>=0 && x2<max_map_hor && y1 >= 0 && y2 < max_map_ver)
     {
         if(x_val > 0) // nvat dang di chuyen ve ben phai
@@ -415,7 +441,8 @@ void maincharacter::CheckToMap(gMAP& map_data)
                 {
                     x_pos = x2*TILE_SIZE;
                     x_pos -= width_frame + 1;
-                    x_val = 0;
+                    x_val = 0; //ấn di chuyển nữa thì cũng không cộng thêm
+                    //cuối cùng x_pos = chính nó do đã trừ hết, tức giữ nguyên vị trí
                 }
 
             }

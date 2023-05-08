@@ -50,6 +50,8 @@ class maincharacter : public Spine
         int GetMoneyCount() const {return money_count; }
 
         int die = 0;
+        Uint32 time_val = SDL_GetTicks() / 1000;
+
 
     private:
 
