@@ -108,7 +108,7 @@ int Menu::ShowMenu(SDL_Renderer* des, TTF_Font* font) {
     posArr[0].x = SCREEN_WIDTH*0.5 - 120;
     posArr[0].y = SCREEN_HEIGHT*0.5;
 
-    posArr[1].x = SCREEN_WIDTH*0.5 - 75;
+    posArr[1].x = SCREEN_WIDTH*0.5 - 75 - 60;
     posArr[1].y = SCREEN_HEIGHT*0.5 + 60;
 
     posArr[2].x = SCREEN_WIDTH*0.5 - 50;
@@ -119,7 +119,7 @@ int Menu::ShowMenu(SDL_Renderer* des, TTF_Font* font) {
     textMenu[0].SetColor(TextObject::WHITE_TEXT);
     textMenu[0].SetRect(posArr[0].x, posArr[0].y);
 
-    textMenu[2].SetText("Credit");
+    textMenu[2].SetText("How to play");
     textMenu[2].SetColor(TextObject::WHITE_TEXT);
     textMenu[2].SetRect(posArr[1].x, posArr[1].y);
 
@@ -200,14 +200,18 @@ int Menu::ShowRestart(SDL_Renderer* des, TTF_Font* font) {
     const int RestartItemNum = 1;
     SDL_Rect posArr[RestartItemNum];
 
-    posArr[0].x = SCREEN_WIDTH*0.5 - 60;
-    posArr[0].y = SCREEN_HEIGHT*0.5;
+    posArr[0].x = SCREEN_WIDTH*0.5 - 40;
+    posArr[0].y = SCREEN_HEIGHT*0.5 + 20;
+
+
 
 
     TextObject textMenu[RestartItemNum];
     textMenu[0].SetText("EXIT");
     textMenu[0].SetColor(TextObject::WHITE_TEXT);
     textMenu[0].SetRect(posArr[0].x, posArr[0].y);
+
+
 
 
     bool selected[RestartItemNum] = {0};
@@ -273,3 +277,117 @@ int Menu::ShowRestart(SDL_Renderer* des, TTF_Font* font) {
     return 1;
 }
 
+Spine tutorial;
+
+int Menu::ShowTuto(SDL_Renderer* des, TTF_Font* font)
+{
+     if (tutorial.LoadImg("layers//tuto.jpg", des) == 0)
+     {
+        return 1;
+     }
+
+    const int RestartItemNum = 1;
+    SDL_Rect posArr[RestartItemNum];
+
+
+    posArr[0].x = 10;
+    posArr[0].y = 10;
+
+    TextObject textMenu[RestartItemNum];
+    textMenu[0].SetText("BACK");
+    textMenu[0].SetColor(TextObject::WHITE_TEXT);
+    textMenu[0].SetRect(posArr[0].x, posArr[0].y);
+
+    const int line = 4;
+     SDL_Rect posguide[line];
+     posguide[0].x = 40;
+     posguide[0].y = 150;
+
+     posguide[1].x = 40;
+     posguide[1].y = 250;
+
+     posguide[2].x = 40;
+     posguide[2].y = 350;
+
+     posguide[3].x = 40;
+     posguide[3].y = 400;
+
+     TextObject guide[line];
+     guide[0].SetText("Press UP, LEFT, RIGHT to move");
+     guide[0].SetColor(TextObject::WHITE_TEXT);
+     guide[0].SetRect(posguide[0].x, posguide[0].y);
+
+     guide[1].SetText("Press A or F to shoot");
+     guide[1].SetColor(TextObject::WHITE_TEXT);
+     guide[1].SetRect(posguide[1].x, posguide[1].y);
+
+     guide[2].SetText("Beware!!!");
+     guide[2].SetColor(TextObject::WHITE_TEXT);
+     guide[2].SetRect(posguide[2].x, posguide[2].y);
+
+     guide[3].SetText("Threats have multiple health and you only have 3. Be cafeful!");
+     guide[3].SetColor(TextObject::WHITE_TEXT);
+     guide[3].SetRect(posguide[3].x, posguide[3].y);
+
+
+
+     bool selected[RestartItemNum] = {0};
+    int xm = 0;
+    int ym = 0;
+    SDL_Event mEvent;
+    while (true) {
+        tutorial.Render(des);
+        for (int i = 0; i < RestartItemNum; i++) {
+            textMenu[i].LoadFromRenderText(font, des);
+            textMenu[i].RenderText(des);
+            // textMenu[i].CreateGameText(font, des);
+        }
+        for (int i = 0; i < line; i++) {
+            guide[i].LoadFromRenderText(font, des);
+            guide[i].RenderText(des);
+        }
+        while (SDL_PollEvent(&mEvent)) {
+            switch (mEvent.type)
+            {
+            case SDL_QUIT:
+                return 0;
+            case SDL_MOUSEMOTION:
+                xm = mEvent.motion.x;
+                ym = mEvent.motion.y;
+
+                for (int i = 0; i < RestartItemNum; i++) {
+                    if (SDLCommonFunc::CheckFocusWithRect(xm, ym, textMenu[i].GetRect()) == 1) {
+                        if (selected[i] == false) {
+                            selected[i] = true;
+                            textMenu[i].SetColor(TextObject::RED_TEXT);
+                        }
+                    }
+                    else {
+                        if (selected[i] == true) {
+                            selected[i] = false;
+                            textMenu[i].SetColor(TextObject::WHITE_TEXT);
+                        }
+                    }
+                }
+
+                break;
+
+            case SDL_MOUSEBUTTONDOWN:
+                xm = mEvent.button.x;
+                ym = mEvent.button.y;
+                for (int i = 0; i < RestartItemNum; i++) {
+                    if (SDLCommonFunc::CheckFocusWithRect(xm, ym, textMenu[i].GetRect()) == 1) {
+                        return i;
+                    }
+                }
+
+            default:
+                break;
+            }
+
+        }
+
+    SDL_RenderPresent(des);
+    }
+    return 1;
+}

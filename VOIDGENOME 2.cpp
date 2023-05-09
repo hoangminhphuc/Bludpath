@@ -17,6 +17,7 @@
 Spine gameBackground;
 TTF_Font* font_time = NULL;
 TTF_Font* font_menu = NULL;
+TTF_Font* font_tuto = NULL;
 
 bool InitData()
 {
@@ -63,6 +64,7 @@ bool InitData()
         }
         font_time = TTF_OpenFont("font//dlxfont.ttf", 15);
         font_menu = TTF_OpenFont("font//TheCen.ttf", 40);
+        font_tuto = TTF_OpenFont("font//TheCen.ttf", 30);
 
         if (font_time == NULL || font_menu == NULL)
         {
@@ -252,12 +254,33 @@ int main(int argc, char* argv[])
     TextObject money_game;
     money_game.SetColor(TextObject::WHITE_TEXT);
 
-
+    int t = 1; // check trong vòng lặp để xem đã vào game chưa hay chỉ vào tutorial
     bool is_quit = false;
     int retMenu = Menu::ShowMenu(gameRenderer, font_menu);
-     if (retMenu == 1)
+    if (retMenu == 1)
     {
         is_quit = true;
+    }
+    else if(retMenu == 2)
+    {
+        while (t == 1)
+        {
+       int retTuto = Menu::ShowTuto(gameRenderer, font_tuto);
+       if(retTuto == 0)
+       {
+            int retMenu1 = Menu::ShowMenu(gameRenderer, font_menu);
+                if (retMenu1 == 1)
+                {
+                    is_quit = true;
+                    t = 2;
+                }
+                else if(retMenu1 == 2)
+                {
+                    t = 1;
+                }
+                else t = 2; // ấn play game r thì thoát vòng lặp
+       }
+        }
     }
 
 
@@ -383,6 +406,7 @@ int main(int argc, char* argv[])
                         {
                             is_quit = true;
                         }
+
                     }
 
 
