@@ -17,6 +17,8 @@ Your mission is to bring her back home safe and sound without any fatal injuries
  * Level and threats:
  
  Only 1 level throughout the game and the enemy difficulty remain the same. Try to reach the end of the map and you will get home safely.
+
+ You have unlimited bullet but limited lives. If you lose all those lives, you will lose. Same thing goes to you when you fall into the abyss.
  
  Some monsters are capable of releasing chasing bullet, and some can shoot bullet as well. You might not want to run into them.
 
