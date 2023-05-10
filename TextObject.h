@@ -51,6 +51,7 @@ namespace Menu {
     int ShowMenu(SDL_Renderer* des, TTF_Font* font);
     int ShowRestart(SDL_Renderer* des, TTF_Font* font);
     int ShowTuto(SDL_Renderer* des, TTF_Font* font);
+    int MenuWin(SDL_Renderer* des, TTF_Font* font);
 }
 
 #endif // TEXTOBJECT_H

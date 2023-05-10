@@ -301,7 +301,7 @@
 	"AllFunc.h"
 	"Spine.h"
 
-1681051154 c:\new folder\new folder\new folder\allfunc.h
+1683687789 c:\new folder\new folder\new folder\allfunc.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -309,7 +309,7 @@
 	<SDL_mixer.h>
 	"TextObject.h"
 
-1683634969 c:\new folder\new folder\new folder\textobject.h
+1683689200 c:\new folder\new folder\new folder\textobject.h
 	"AllFunc.h"
 	"Spine.h"
 
@@ -348,13 +348,13 @@
 1679457730 c:\new folder\new folder\new folder\geometric.h
 	"AllFunc.h"
 
-1681301702 source:c:\new folder\new folder\new folder\maincharacter.cpp
+1683689200 source:c:\new folder\new folder\new folder\maincharacter.cpp
 	"maincharacter.h"
 	"AllFunc.h"
 	"BulletObject.h"
 	"PlayerPower.h"
 
-1681053646 c:\new folder\new folder\new folder\maincharacter.h
+1683690363 c:\new folder\new folder\new folder\maincharacter.h
 	<vector>
 	"AllFunc.h"
 	"Spine.h"
@@ -367,7 +367,7 @@
 1678981643 source:c:\new folder\new folder\new folder\playerpower.cpp
 	"PlayerPower.h"
 
-1683638113 source:c:\new folder\new folder\new folder\textobject.cpp
+1683690296 source:c:\new folder\new folder\new folder\textobject.cpp
 	"TextObject.h"
 
 1681309761 source:c:\new folder\new folder\new folder\threatsobject.cpp
@@ -385,7 +385,7 @@
 
 1677598840 c:\new folder\new folder\new folder\timer.h
 
-1683637829 source:c:\new folder\new folder\new folder\voidgenome 2.cpp
+1683689680 source:c:\new folder\new folder\new folder\voidgenome 2.cpp
 	<iostream>
 	"AllFunc.h"
 	"Spine.h"

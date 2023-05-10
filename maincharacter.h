@@ -48,7 +48,8 @@ class maincharacter : public Spine
         void IncreaseMoney();
         void set_comeback_time(const int& cb_time) {come_back_time_ = cb_time;}
         int GetMoneyCount() const {return money_count; }
-
+        bool get_check_win() const {return check_win; }
+        void set_check_win(const int& cw) {check_win = cw;}
         int die = 0;
         Uint32 time_val = SDL_GetTicks() / 1000;
 
@@ -76,6 +77,7 @@ class maincharacter : public Spine
         int map_y_; //tinh toan xem vi tri cua ban do o dau
 
         int come_back_time_; // thời gian sau khi bị rơi xuống vực thẳm
+        bool check_win; // win tro choi
 
 
 

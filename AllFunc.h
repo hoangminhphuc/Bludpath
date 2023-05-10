@@ -38,6 +38,8 @@ const int RenderColor = 0Xff;
 
 #define STATE_MONEY 4
 
+#define HOUSE 5
+
 typedef struct Input //xu li input di chuyen nvat
 {
     int left_, right_, up_, down_, jump_;

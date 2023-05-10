@@ -495,6 +495,16 @@ int main(int argc, char* argv[])
             }
         }
 
+        if(p_player.get_check_win() == true)
+        {
+            int retWin = Menu::MenuWin(gameRenderer, font_menu);
+            //p_player.set_check_win(false);
+            if(retWin == 0)
+            {
+                is_quit = true;
+            }
+
+        }
 
         // show game time
 

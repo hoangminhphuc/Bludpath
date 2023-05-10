@@ -26,6 +26,7 @@ maincharacter::maincharacter()
     map_x_ = 0;
     map_y_ = 0;
     come_back_time_ = 0;
+    check_win = false;
 }
 
 maincharacter::~maincharacter()
@@ -428,7 +429,12 @@ void maincharacter::CheckToMap(gMAP& map_data) //ktra va chạm nvat và map b�
 
             int val1 = map_data.tile[y1][x2];
             int val2 = map_data.tile[y2][x2];
-
+            if (val1 == HOUSE || val2 == HOUSE)
+            {
+                map_data.tile[y1][x2] = 0;
+                map_data.tile[y2][x2] = 0;
+                check_win = true;
+            }
             if (val1 == STATE_MONEY || val2 == STATE_MONEY)
             {
                 map_data.tile[y1][x2] = 0;
@@ -455,6 +461,12 @@ void maincharacter::CheckToMap(gMAP& map_data) //ktra va chạm nvat và map b�
             int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y2][x1];
 
+            if (val1 == HOUSE || val2 == HOUSE)
+            {
+                map_data.tile[y1][x1] = 0;
+                map_data.tile[y2][x1] = 0;
+                check_win = true;
+            }
             if (val1 == STATE_MONEY || val2 == STATE_MONEY)
             {
                 map_data.tile[y1][x1] = 0;
@@ -491,6 +503,13 @@ void maincharacter::CheckToMap(gMAP& map_data) //ktra va chạm nvat và map b�
             int val1 = map_data.tile[y2][x1];
             int val2 = map_data.tile[y2][x2];
 
+            if (val1 == HOUSE || val2 == HOUSE)
+            {
+                map_data.tile[y2][x1] = 0;
+                map_data.tile[y2][x2] = 0;
+                check_win = true;
+            }
+
             if (val1 == STATE_MONEY || val2 == STATE_MONEY)
             {
                 map_data.tile[y2][x1] = 0;
@@ -518,6 +537,13 @@ void maincharacter::CheckToMap(gMAP& map_data) //ktra va chạm nvat và map b�
 
             int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y1][x2];
+
+            if (val1 == HOUSE || val2 == HOUSE)
+            {
+                map_data.tile[y1][x1] = 0;
+                map_data.tile[y1][x2] = 0;
+                check_win = true;
+            }
 
             if (val1 == STATE_MONEY || val2 == STATE_MONEY)
             {

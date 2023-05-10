@@ -391,3 +391,108 @@ int Menu::ShowTuto(SDL_Renderer* des, TTF_Font* font)
     }
     return 1;
 }
+
+
+Spine Win;
+int Menu::MenuWin(SDL_Renderer* des, TTF_Font* font)
+{
+    if (Win.LoadImg("layers//win.png", des) == 0)
+     {
+        return 1;
+     }
+
+    const int RestartItemNum = 1;
+    SDL_Rect posArr[RestartItemNum];
+
+
+    posArr[0].x = SCREEN_WIDTH*0.5 - 40;
+    posArr[0].y = SCREEN_HEIGHT*0.5 + 20 + 50;
+
+    TextObject textMenu[RestartItemNum];
+    textMenu[0].SetText("EXIT");
+    textMenu[0].SetColor(TextObject::WHITE_TEXT);
+    textMenu[0].SetRect(posArr[0].x, posArr[0].y);
+
+    const int congra = 2;
+     SDL_Rect posguide[congra];
+     posguide[0].x = SCREEN_WIDTH*0.5 - 160;
+     posguide[0].y = SCREEN_HEIGHT*0.5 + 20 - 150;
+
+     posguide[1].x = SCREEN_WIDTH*0.5 - 440;
+     posguide[1].y = SCREEN_HEIGHT*0.5 + 20 - 100;
+
+
+
+     TextObject guide[congra];
+     guide[0].SetText("Congratulations!");
+     guide[0].SetColor(TextObject::WHITE_TEXT);
+     guide[0].SetRect(posguide[0].x, posguide[0].y);
+
+     guide[1].SetText("You have successfully bring her back home");
+     guide[1].SetColor(TextObject::WHITE_TEXT);
+     guide[1].SetRect(posguide[1].x, posguide[1].y);
+
+
+
+
+
+     bool selected[RestartItemNum] = {0};
+    int xm = 0;
+    int ym = 0;
+    SDL_Event mEvent;
+    while (true) {
+        Win.Render(des);
+        for (int i = 0; i < RestartItemNum; i++) {
+            textMenu[i].LoadFromRenderText(font, des);
+            textMenu[i].RenderText(des);
+            // textMenu[i].CreateGameText(font, des);
+        }
+        for (int i = 0; i < congra; i++) {
+            guide[i].LoadFromRenderText(font, des);
+            guide[i].RenderText(des);
+        }
+        while (SDL_PollEvent(&mEvent)) {
+            switch (mEvent.type)
+            {
+            case SDL_QUIT:
+                return 0;
+            case SDL_MOUSEMOTION:
+                xm = mEvent.motion.x;
+                ym = mEvent.motion.y;
+
+                for (int i = 0; i < RestartItemNum; i++) {
+                    if (SDLCommonFunc::CheckFocusWithRect(xm, ym, textMenu[i].GetRect()) == 1) {
+                        if (selected[i] == false) {
+                            selected[i] = true;
+                            textMenu[i].SetColor(TextObject::RED_TEXT);
+                        }
+                    }
+                    else {
+                        if (selected[i] == true) {
+                            selected[i] = false;
+                            textMenu[i].SetColor(TextObject::WHITE_TEXT);
+                        }
+                    }
+                }
+
+                break;
+
+            case SDL_MOUSEBUTTONDOWN:
+                xm = mEvent.button.x;
+                ym = mEvent.button.y;
+                for (int i = 0; i < RestartItemNum; i++) {
+                    if (SDLCommonFunc::CheckFocusWithRect(xm, ym, textMenu[i].GetRect()) == 1) {
+                        return i;
+                    }
+                }
+
+            default:
+                break;
+            }
+
+        }
+
+    SDL_RenderPresent(des);
+    }
+    return 1;
+}
