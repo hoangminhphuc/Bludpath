@@ -20,7 +20,7 @@ Your mission is to bring her back home safe and sound without any fatal injuries
  
  Some monsters are capable of releasing chasing bullet, and some can shoot bullet as well. You might not want to run into them.
 
-#Credit:
+# Credit:
  All source of image including threats, backgrounds and main character are free online.
 
  You are free to use any source of images within this game for personal purposes as i do not own any of them.
