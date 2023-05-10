@@ -16,8 +16,19 @@ Your mission is to bring her back home safe and sound without any fatal injuries
  
  * Level and threats:
  
- Only 1 level throughout the game and the enemy difficulty remain the same.
+ Only 1 level throughout the game and the enemy difficulty remain the same. Try to reach the end of the map and you will get home safely.
  
+ Some monsters are capable of releasing chasing bullet, and some can shoot bullet as well. You might not want to run into them.
+
+#Credit:
+ All source of image including threats, backgrounds and main character are free online.
+
+ You are free to use any source of images within this game for personal purposes as i do not own any of them.
+ 
+ This game is made by VoidGenome.
+
+ Special thanks to : phattrienphanmem123az and my friends.
+
  # Demo video:
  
  https://drive.google.com/file/d/1t9ec3g2O0aP-Frqfn2k3-TEP7NW2XLtE/view?usp=share_link
